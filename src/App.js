@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import Item from '../src/components/Item'
 import './App.css';
+
+const data = [
+  { name: 'Edson', color: 'red' },
+  { name: 'Carlos', color: 'blue' },
+  { name: 'Oscar', color: 'green' }
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        data.map((item, index)=> <Item key={index} item={item} /> )
+      }
     </div>
   );
 }
