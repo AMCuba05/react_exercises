@@ -11,9 +11,7 @@ const data = [
 ]
 
 function App() {
-  const [display, setDisplay] = useState(true)
   const [title, setTitle] = useState('Title')
-  const handleChecked = (e) => setDisplay(e.target.checked)
 
   useEffect(() => {
     console.log('app is mounting')
@@ -26,10 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <TitleCard handleCheck={handleChecked} check={display} title={title} />
-      {
-        display ? <ItemList data={data} /> : null
-      }
+      <TitleCard title={title} data={data} />
     </div>
   );
 }
