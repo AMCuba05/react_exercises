@@ -1,16 +1,22 @@
 import {Card} from 'react-bootstrap'
 import ItemList from '../ItemList/ItemList'
+import {ThemeContext} from '../../utils/themeContext'
+import { useContext } from 'react'
+import './TitleCard.css'
 
 const TitleCard = ({title, data}) => {
-    
-    return(
-    <Card style={{ width: '100%' }}>
-        <Card.Body >
-          <Card.Title style={{textAlign: 'left',}} >{title}</Card.Title>
-          <ItemList data={data} />
-        </Card.Body>
-      </Card>
-    )
+
+  const [theme] = useContext(ThemeContext)
+
+  return(
+    <Card className={theme === 'dark' ? 'card-dark' : 'card-light'} >
+      {console.log(theme)}
+      <Card.Body >
+        <Card.Title style={{textAlign: 'left'}} >{title}</Card.Title>
+        <ItemList data={data} />
+      </Card.Body>
+    </Card>
+  )
 }
 
 export default TitleCard

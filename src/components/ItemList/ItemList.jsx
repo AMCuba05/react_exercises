@@ -14,7 +14,7 @@ const ItemList = ({data}) => {
     return(
         <ListGroup>
         {
-            data.map((item, index)=> <Item key={index} variant={item.variant} name={item.name} /> )
+            data.map((item, index)=> <Item key={index} variant={'dark'} name={item.name} /> )
         }
         </ListGroup>
     )

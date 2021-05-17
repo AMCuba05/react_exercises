@@ -1,0 +1,11 @@
+.item-dark {
+    background-color: #2A3B47;
+    text-align: left;
+    color: #EFF3F5;
+}
+
+.item-light {
+    background-color: #EFF3F5;
+    text-align: left;
+    color: #2A3B47;
+}
