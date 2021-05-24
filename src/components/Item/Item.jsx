@@ -1,22 +1,23 @@
 import { useState, useContext } from "react";
 import {ThemeContext} from '../../utils/themeContext'
 import { ListGroup } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { toggleTodo } from "../../redux/actions";
 import './Item.css'
 
-const Item = ({variant, name}) => {
-
-    const [check, setCheck] = useState(false)
-    const handleCheck = () => setCheck(!check)
+const Item = ({todo}) => {
+    const dispatch = useDispatch();
+    const handleCheck = () => dispatch(toggleTodo(todo.id))
     const [theme] = useContext(ThemeContext)
 
     return(
-        <ListGroup.Item variant={variant} className={theme === 'dark'? 'item-dark' : 'item-light'} >
+        <ListGroup.Item className={theme === 'dark'? 'item-dark' : 'item-light'} >
             <input type='checkbox'
                 style={{marginRight: '10px'}}
-                checked={check} 
+                checked={todo.completed} 
                 onChange={handleCheck} 
             />
-            {name}
+            {todo.content}
         </ListGroup.Item>
     )
 }

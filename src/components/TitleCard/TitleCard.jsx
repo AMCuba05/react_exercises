@@ -4,7 +4,7 @@ import {ThemeContext} from '../../utils/themeContext'
 import { useContext } from 'react'
 import './TitleCard.css'
 
-const TitleCard = ({title, data}) => {
+const TitleCard = ({title, }) => {
 
   const [theme] = useContext(ThemeContext)
 
@@ -13,7 +13,7 @@ const TitleCard = ({title, data}) => {
       {console.log(theme)}
       <Card.Body >
         <Card.Title style={{textAlign: 'left'}} >{title}</Card.Title>
-        <ItemList data={data} />
+        <ItemList />
       </Card.Body>
     </Card>
   )

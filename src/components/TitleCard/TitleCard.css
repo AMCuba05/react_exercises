@@ -4,6 +4,7 @@
     border-color: #EFF3F5;
     border-width: 2;
     color: #2A3B47;
+    margin-top: 20px;
 }
 
 .card-dark {
@@ -12,4 +13,5 @@
     border-color: #2A3B47;
     border-width: 2;
     color: #EFF3F5;
+    margin-top: 20px;
 }

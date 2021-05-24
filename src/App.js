@@ -1,23 +1,21 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {ThemeContext, themes} from './utils/themeContext'
+import { Provider } from "react-redux";
 import TitleCard from './components/TitleCard/TitleCard'
 import Switch from './components/Switch/Switch'
+import AddTodo from './components/AddTodo/AddTodo'
+import store from './redux/store'
 import './App.css'
-import { useEffect, useState } from 'react'
-
-const data = [
-  { name: 'Edson', variant: 'danger' },
-  { name: 'Carlos', variant: 'primary' },
-  { name: 'Oscar', variant: 'success' }
-]
+import { useEffect, useState, useContext } from 'react'
 
 function App() {
   const [title, setTitle] = useState('Title')
-  const themeHook = useState(themes.light)
+  const themeHook = useState(themes.dark)
+
  
   useEffect(() => {
     console.log('app is mounting')
-    setTimeout( () => setTitle('Another Title'), 1000)
+    setTitle('To do list')
   }, [])
   
   useEffect(() => {
@@ -25,15 +23,17 @@ function App() {
   }, [title])
 
   return (
-    <ThemeContext.Provider value={themeHook} >
-      
-      <div className={themeHook[0] === 'dark' ? 'container-dark' : 'container-light'} >
-        <div className="App">
-          <Switch />
-          <TitleCard title={title} data={data} />
+    <Provider store={store} >
+      <ThemeContext.Provider value={themeHook} >
+        <div className={themeHook[0] === 'dark' ? 'container-dark' : 'container-light'} >
+          <div className="App">
+            <Switch />
+            <AddTodo />
+            <TitleCard title={title}  />
+          </div>
         </div>
-      </div>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </Provider>
   )
 }
 
